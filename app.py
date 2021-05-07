@@ -1,6 +1,7 @@
 from imageai.Detection import ObjectDetection
 from PIL import Image
 import cv2
+import requests
 
 
 def run_model():
@@ -16,10 +17,10 @@ def getDetections(detector, imageUrl):
 												 output_image_path="image2new.jpg", 
 												 minimum_percentage_probability=30)
 
-def crope(imgPath, box_points, i):
-	img = Image.open(imgPath)
-	cropped_img = img.crop(box_points)
-	cropped_img.save(f'results/result_{i}.jpg')
+# def crope(imgPath, box_points, i):
+# 	img = Image.open(imgPath)
+# 	cropped_img = img.crop(box_points)
+# 	cropped_img.save(f'results/result_{i}.jpg')
 
 def saveImage(url, name):
 	response = requests.get(url)
